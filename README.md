@@ -3,6 +3,8 @@
 A React-Native boilerplate mobile app with authentication.
 
 ### Demo
+<img width=250 src="https://cloud.githubusercontent.com/assets/1322724/21243823/75fca1a8-c2cf-11e6-93a2-53427e16f405.gif">
+
 
 ### Tech
 
@@ -38,6 +40,8 @@ $ npm install
 $ npm start
 ```
 
+Checkout my [koa-api] API backend boilerplate with authentication and db for a real API server.
+
 #### Start client
 ```sh
 $ react-native run-ios
@@ -61,3 +65,4 @@ MIT
    [react-native-simple-store]: <https://github.com/jasonmerino/react-native-simple-store>
    [redux-thunk]: <https://github.com/gaearon/redux-thunk>
    [ReactNativeBoilerplate]: <https://github.com/anuragsimgeker/ReactNativeBoilerplate>
+   [koa-api]: <https://github.com/anuragsimgeker/koa-api>
