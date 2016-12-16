@@ -42,9 +42,15 @@ $ npm start
 
 Checkout my [koa-api] API backend boilerplate with authentication and db for a real API server.
 
-#### Start client
+#### Start iOS simulator
 ```sh
 $ react-native run-ios
+```
+
+#### Start Android simulator
+##### Edit ```src/utils/config.js``` and change ```localhost``` to your IP
+```sh
+$ react-native run-android
 ```
 
 ### Author

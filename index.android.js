@@ -5,49 +5,40 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry } from 'react-native';
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk';
+import { Actions, Router, Scene } from 'react-native-router-flux';
+
+// Containers
+import LoginContainer from './src/containers/Login'
+import LaunchContainer from './src/containers/Launch'
+import HomeContainer from './src/containers/Home'
+
+// Reducer
+import rootReducer from './src/reducers'
+
+// Redux store
+let store = createStore(rootReducer, applyMiddleware(thunk))
+
+// Router scenes
+const scenes = Actions.create(
+  <Scene key="root">
+    <Scene key="launch" component={LaunchContainer} hideNavBar={true} initial={true} />
+    <Scene key="login" component={LoginContainer} hideNavBar={true} />
+    <Scene key="home" component={HomeContainer} hideNavBar={true} />
+  </Scene>
+);
 
 export default class ReactNativeBoilerplate extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Provider store={store}>
+        <Router scenes={scenes} />
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('ReactNativeBoilerplate', () => ReactNativeBoilerplate);
